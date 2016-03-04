@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://pczeeuw.nl/countries" xmlns:tns="http://pczeeuw.nl/countries" elementFormDefault="qualified">
+
+    <element name="getCountryRequest">
+    	<complexType>
+    		<sequence>
+    			<element name="name" type="string"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <element name="getCountryResponse">
+    	<complexType>
+    		<sequence>
+    			<element name="country" type="tns:country"/>
+    		</sequence>
+    	</complexType>
+    </element>
+    
+    <complexType name="country">
+    	<sequence>
+    		<element name="name" type="string"></element>
+    		<element name="population" type="int"></element>
+    		<element name="capital" type="string"></element>
+    		<element name="currency" type="tns:currency"></element>
+    	</sequence>
+    </complexType>
+
+    <simpleType name="currency">
+    	<restriction base="string">
+    		<enumeration value="GBP"></enumeration>
+    		<enumeration value="EUR"></enumeration>
+    		<enumeration value="USD"></enumeration>
+    		<enumeration value="PLN"></enumeration>
+    	</restriction>
+    </simpleType>
+</schema>
